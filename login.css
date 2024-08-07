@@ -1,0 +1,10 @@
+.login{
+    display: flex;
+    justify-content: center;
+}
+.log{
+    color: white;
+}
+body{
+    background-color: black;
+}

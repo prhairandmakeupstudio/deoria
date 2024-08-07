@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+    <div class="login">
+      <a href="./login.html"><img src="./prlogo.png" alt="prlogo" width="100px"></a>
+      <h2 class="log">Login</h2>
+    </div>
+    <div class="login">
+      <form class="login-form" action="javascript:void(0);" onsubmit="login()">
+        <input type="text" id="username" placeholder="Username (ID)">
+        <input type="password" id="password" placeholder="Password">
+        <input type="submit" value="Login">
+      </form>
+    </div>
+
+    <script>
+    function login() {
+      var username = document.querySelector("#username").value;
+      var password = document.querySelector("#password").value;
+
+      if(username === "ranjeet" && password === "sgt"){
+        window.location.href = "./option_page.html";
+      }else{
+        alert("Invalid username or password");
+      }
+    }
+    </script>
+
+
+
+</body>
+</html>
