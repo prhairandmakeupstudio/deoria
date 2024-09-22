@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="appointment.css">
+</head>
+<body>
+    <div>
+        <section><!--form-->
+            
+            <h2><a href="./index.html"><img src="./prlogo.png" alt="prlogo" width="7%"></a> Book Appointment</h2>
+            <form id="appointment-form">
+                <fieldset>
+                    <label for="name">Name <input required type="text" id="name" name="name"></label>
+                    <label for="contact">Contact Number <input required type="text" id="contact" name="contact"></label>
+                    <label for="date">Date <input required id="date" type="date" name="date"></label>
+                    <label for="time">Time <input required id="time" type="time" name="time"></label>
+                    <label for="service">Service <input required type="text" id="service" name="contact"></label>
+                    <input type="submit" value="Submit" id="submit" onclick="sendMessage()">
+                </fieldset>
+            </form>
+        </section>
+    </div>
+    <script>
+        function sendMessage(){
+            var name = document.getElementById('name').value;
+            var contact = document.getElementById('contact').value;
+            var date = document.getElementById('date').value;
+            var service = document.getElementById('service').value;
+            var time = document.getElementById('time').value;
+
+            var encode = encodeURIComponent(`Name: ${name}\ncontact: ${contact}\ndate: ${date}\ntime: ${time}\nservice: ${service}`);
+
+            var whatsappUrl = `https://wa.me/%3C9335353599%3E?text=${encode}`; // https://wa.me/%3C8707744651%3E?text=hello-needdetails
+
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
