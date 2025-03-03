@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Certificate Validation</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to right, #fce4ec, #f8bbd0); /* soft pink gradient */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 350px;
+            border: 3px solid #e91e63; /* vibrant pink border */
+        }
+
+        h2 {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 28px;
+            color: #e91e63;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            width: 85%;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 12px 20px;
+            cursor: pointer;
+            background-color: #e91e63; 
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #c2185b;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .valid {
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .invalid {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .certificate-details {
+            background: #fce4ec;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 10px;
+            border: 1px solid #e91e63;
+            text-align: left;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Salon Certificate Validation</h2>
+    <input type="text" id="certificateNumber" placeholder="Enter Certificate Number">
+    <button onclick="validateCertificate()">Validate</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    const validCertificates = {
+        "PR001": {
+            name: "abhi",
+            service: "Advanced Hair Styling",
+            issueDate: "2024-02-20"
+        },
+        "PR002": {
+            name: "Emma Watson",
+            service: "Professional Makeup Certification",
+            issueDate: "2024-01-15"
+        }
+    };
+
+    function validateCertificate() {
+        const certNumber = document.getElementById("certificateNumber").value.trim();
+        const resultDiv = document.getElementById("result");
+
+        if (validCertificates[certNumber]) {
+            const cert = validCertificates[certNumber];
+            resultDiv.innerHTML = `
+                <p class="valid">✅ Certificate is Valid</p>
+                <div class="certificate-details">
+                    <p><strong>Name:</strong> ${cert.name}</p>
+                    <p><strong>Service:</strong> ${cert.service}</p>
+                    <p><strong>Issue Date:</strong> ${cert.issueDate}</p>
+                </div>
+            `;
+        } else {
+            resultDiv.innerHTML = `<p class="invalid">❌ Invalid Certificate Number</p>`;
+        }
+    }
+</script>
+
+</body>
+</html>
